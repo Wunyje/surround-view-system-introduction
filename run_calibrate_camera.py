@@ -7,10 +7,12 @@ Usage:
     python calibrate_camera.py \
         -i 0 \
         -grid 9x6 \
-        -out fisheye.yaml \
+        -o fisheye.yaml \
         -framestep 20 \
         --resolution 640x480
         --fisheye
+Example: 
+    /bin/python3 run_calibrate_camera.py -i 44 -grid 5x4 -o front.yaml -framestep 20 --resolution 960x640 --fisheye
 """
 import argparse
 import os
@@ -31,7 +33,7 @@ def main():
     parser = argparse.ArgumentParser()
 
     # input video stream
-    parser.add_argument("-i", "--input", type=int, default=0,
+    parser.add_argument("-i", "--input", type=int, default=44,
                         help="input camera device")
 
     # chessboard pattern size
@@ -81,7 +83,7 @@ def main():
     cap_thread = CaptureThread(device_id=device,
                                flip_method=args.flip,
                                resolution=(W, H),
-                               use_gst=not args.no_gst,
+                               use_gst=False#not args.no_gst,
                                )
     buffer_manager = MultiBufferManager()
     buffer_manager.bind_thread(cap_thread, buffer_size=8)

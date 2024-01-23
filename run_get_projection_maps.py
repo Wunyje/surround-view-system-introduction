@@ -10,6 +10,10 @@ import cv2
 from surround_view import FisheyeCameraModel, PointSelector, display_image
 import surround_view.param_settings as settings
 
+"""
+example:
+/bin/python3 run_get_projection_maps.py -camera front -scale 0.7 0.8
+"""
 
 def get_projection_map(camera_model, image):
     und_image = camera_model.undistort(image)
@@ -53,9 +57,12 @@ def main():
     else:
         shift = (0, 0)
 
+    current_file_directory = os.path.dirname(os.path.realpath(__file__))
     camera_name = args.camera
-    camera_file = os.path.join(os.getcwd(), "yaml", camera_name + ".yaml")
-    image_file = os.path.join(os.getcwd(), "images", camera_name + ".png")
+    camera_file = os.path.join(current_file_directory, "yaml", camera_name + ".yaml")
+    print(camera_file)
+
+    image_file = os.path.join(current_file_directory, "images", camera_name + ".png")
     image = cv2.imread(image_file)
     camera = FisheyeCameraModel(camera_file, camera_name)
     camera.set_scale_and_shift(scale, shift)

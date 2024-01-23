@@ -75,9 +75,9 @@ class CaptureThread(BaseThread):
     def connect_camera(self):
         if self.use_gst:
             options = gstreamer_pipeline(cam_id=self.device_id, flip_method=self.flip_method)
-            self.cap.open(options, self.api_preference)
+            self.cap.open(options,  cv2.CAP_GSTREAMER)#self.api_preference)
         else:
-            self.cap.open(self.device_id)
+            self.cap.open(self.device_id, cv2.CAP_V4L2)
         # return false if failed to open camera
         if not self.cap.isOpened():
             qDebug("Cannot open camera {}".format(self.device_id))

@@ -59,5 +59,6 @@ project_keypoints = {
               (shift_h + 720, shift_w + 160)]
 }
 
-car_image = cv2.imread(os.path.join(os.getcwd(), "images", "car.png"))
+current_file_directory = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+car_image = cv2.imread(os.path.join(current_file_directory, "images", "car.png"))
 car_image = cv2.resize(car_image, (xr - xl, yb - yt))

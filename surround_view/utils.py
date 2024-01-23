@@ -2,27 +2,21 @@ import cv2
 import numpy as np
 
 
-def gstreamer_pipeline(cam_id=0,
+def gstreamer_pipeline(cam_id=44,
                        capture_width=960,
                        capture_height=640,
-                       framerate=60,
+                       framerate=30,
                        flip_method=2):
     """
     Use libgstreamer to open csi-cameras.
     """
-    return ("nvarguscamerasrc sensor-id={} ! ".format(cam_id) + \
-            "video/x-raw(memory:NVMM), "
-            "width=(int)%d, height=(int)%d, "
-            "format=(string)NV12, framerate=(fraction)%d/1 ! "
-            "nvvidconv flip-method=%d ! "
-            "video/x-raw, format=(string)BGRx ! "
-            "videoconvert ! "
-            "video/x-raw, format=(string)BGR ! appsink"
-            % (capture_width,
-               capture_height,
-               framerate,
-               flip_method
-            )
+    return ("v4l2src device=/dev/video{} ! ".format(cam_id) + \
+            "video/x-raw, format=NV12, "
+            "width={}, height={}, "
+            "framerate={}/1 ! "
+            "queue ! "
+            "appsink"
+            .format(capture_width, capture_height, framerate)
     )
 
 
