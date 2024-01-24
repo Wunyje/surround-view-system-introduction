@@ -18,6 +18,7 @@ def main():
         img = camera.undistort(img)
         img = camera.project(img)
         img = camera.flip(img)
+        display_image("Mid Result", img)
         projected.append(img)
 
     birdview = BirdView()

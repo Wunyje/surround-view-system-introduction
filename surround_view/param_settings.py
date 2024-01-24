@@ -38,25 +38,25 @@ project_shapes = {
 # you must click these pixels in the same order when running
 # the get_projection_map.py script
 project_keypoints = {
-    "front": [(shift_w + 40, shift_h +  74),
-              (shift_w + 100, shift_h +  74),
-              (shift_w + 40, shift_h + 111),
-              (shift_w + 100, shift_h + 111)],
+    "front": [(shift_w + 65, shift_h +  0),
+              (shift_w + 145, shift_h +  0),
+              (shift_w + 65, shift_h + 33),
+              (shift_w + 145, shift_h + 33)],
 
-    "back":  [(shift_w + 40, shift_h +  74),
-              (shift_w + 100, shift_h +  74),
-              (shift_w + 40, shift_h + 111),
-              (shift_w + 100, shift_h + 111)],
+    "back":  [(shift_w + 65, shift_h +  0),
+              (shift_w + 145, shift_h +  0),
+              (shift_w + 65, shift_h + 33),
+              (shift_w + 145, shift_h + 33)],
 
-    "left":  [(shift_h + 164, shift_w),
-              (shift_h + 124, shift_w),
-              (shift_h + 164, shift_w + 37),
-              (shift_h + 124, shift_w + 37)],
+    "left":  [(shift_h + 264, shift_w),
+              (shift_h + 33, shift_w),
+              (shift_h + 264, shift_w + 33),
+              (shift_h + 33, shift_w + 33)],
 
-    "right": [(shift_h + 124, shift_w),
-              (shift_h + 164, shift_w),
-              (shift_h + 124, shift_w + 37),
-              (shift_h + 164, shift_w + 37)]
+    "right": [(shift_h + 33, shift_w),
+              (shift_h + 264, shift_w),
+              (shift_h + 33, shift_w + 33),
+              (shift_h + 264, shift_w + 33)]
 }
 
 current_file_directory = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
