@@ -24,7 +24,7 @@ def show_cam_img(caps, cam_list):
         ret, frame = cap_device.read()
         if ret:
             cv2.imshow('video', frame)
-        else:
+        else:       
             print("ERROR: failed read frame!")
 
         # quit the test

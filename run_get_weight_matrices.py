@@ -13,13 +13,17 @@ def main():
     camera_models = [FisheyeCameraModel(camera_file, camera_name) for camera_file, camera_name in zip (yamls, names)]
 
     projected = []
-    for image_file, camera in zip(images, camera_models):
+    i = 0
+    for image_file, camera, name in zip(images, camera_models, names):
         img = cv2.imread(image_file)
         img = camera.undistort(img)
+
+        img = cv2.rotate(img, cv2.ROTATE_180)
         img = camera.project(img)
         img = camera.flip(img)
         display_image("Mid Result", img)
         projected.append(img)
+        i=i+1
 
     birdview = BirdView()
     Gmat, Mmat = birdview.get_weights_and_masks(projected)
