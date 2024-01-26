@@ -20,7 +20,7 @@ def get_projection_map(camera_model, image):
     name = camera_model.camera_name
 
     # Rotate the frames from video53 and video62 by 180 degrees
-    und_image = cv2.rotate(und_image, cv2.ROTATE_180)
+    # und_image = cv2.rotate(und_image, cv2.ROTATE_180)
     gui = PointSelector(und_image, title=name)
     dst_points = settings.project_keypoints[name]
     choice = gui.loop()

@@ -12,7 +12,7 @@ Usage:
         --resolution 640x480
         --fisheye
 Example: 
-                                                                /bin/python3 run_calibrate_camera.py -i 44 -grid 9x6 -o front.yaml -framestep 20 --resolution 960x640 --fisheye
+    /bin/python3 run_calibrate_camera.py -i 44 -grid 9x6 -o front.yaml -framestep 20 --resolution 960x640 --fisheye
 """
 import argparse
 import os

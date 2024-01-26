@@ -18,7 +18,7 @@ def main():
         img = cv2.imread(image_file)
         img = camera.undistort(img)
 
-        img = cv2.rotate(img, cv2.ROTATE_180)
+        # img = cv2.rotate(img, cv2.ROTATE_180)
         img = camera.project(img)
         img = camera.flip(img)
         display_image("Mid Result", img)
