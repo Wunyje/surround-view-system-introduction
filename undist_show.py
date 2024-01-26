@@ -15,8 +15,8 @@ cameras = [FisheyeCameraModel(file, name) for file, name in zip(yaml_files, came
 
 # Set the video resolution and frame rate for each device
 for cap in caps:
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 960)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 640)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1280)
     cap.set(cv2.CAP_PROP_FPS, 30)
 
 scale = (0.8, 1.0)
